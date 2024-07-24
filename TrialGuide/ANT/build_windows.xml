@@ -5,14 +5,15 @@
 	<property name="testproject.home" value=".."/>
 	<property name="testproject.results" value="${testproject.home}/ANT/Results"/>
 	<property name="secrets.password" value="${ProvarSecretsPassword}"/>
+	<property name="license.path" value=""/>
 	
-	<taskdef name="Provar-Compile" classname="com.provar.testrunner.ant.CompileTask" classpath="${provar.home}/ant/ant-provar.jar"/>
-	<taskdef name="Run-Test-Case" classname="com.provar.testrunner.ant.RunnerTask" classpath="${provar.home}/ant/ant-provar.jar;${provar.home}/ant/ant-provar-bundled.jar;${provar.home}/ant/ant-provar-sf.jar"/>
+	<taskdef name="Provar-Compile" classname="com.provar.testrunner.ant.CompileTask" 
+		classpath="${provar.home}/ant/ant-provar.jar"/>
+	<taskdef name="Run-Test-Case" classname="com.provar.testrunner.ant.RunnerTask" 
+		classpath="${provar.home}/ant/ant-provar.jar;${provar.home}/ant/ant-provar-bundled.jar;${provar.home}/ant/ant-provar-sf.jar"/>
 	
 	<target name="runtests">
-	
 		<Provar-Compile provarHome="${provar.home}" projectPath="${testproject.home}"/>
-	
 		<Run-Test-Case provarHome="${provar.home}" 
 				projectPath="${testproject.home}" 
 				resultsPath="${testproject.results}" 
@@ -36,7 +37,5 @@
 			<planFeature name="EMAIL" type="NOTIFICATION" enabled="true"/>
 
 		</Run-Test-Case>
-
 	</target>
-
 </project>
